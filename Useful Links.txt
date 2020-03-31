@@ -1,0 +1,18 @@
+Useful Links:
+
+ -More information on proPublica API :
+ 	https://projects.propublica.org/api-docs/congress-api/members/
+
+ -Python Requests:
+ 	https://requests.readthedocs.io/en/master/user/quickstart/
+
+-Web Scrapping:  
+	https://morioh.com/p/abf3d53739f8
+
+	https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
+-Reuters URL:
+	https://www.reuters.com/politics
+
+-Find specific text in a web page:
+	https://stackoverflow.com/questions/51640636/how-to-locate-a-specific-html-row-containing-specific-text-with-python
