@@ -16,3 +16,6 @@ Useful Links:
 
 -Find specific text in a web page:
 	https://stackoverflow.com/questions/51640636/how-to-locate-a-specific-html-row-containing-specific-text-with-python
+
+-Potentially useful for congressmen images
+	https://memberguide.gpo.gov/

@@ -1,7 +1,10 @@
-class King_Joffrey_News():
+class NewsScrapper(object):
 	
 	def __init__(self, base_url):
 		self.base_url = base_url
 
-	def get_article_links(self):
-		
+	def get_articles(self):
+		pass
+
+	def article_contains_name(self, url, name):
+		pass

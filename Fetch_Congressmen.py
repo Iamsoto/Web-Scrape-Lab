@@ -6,6 +6,7 @@ from ProPublicaRequests import houseMembers
 """ 
 A file deticated to fetching Public information on all Congreemen/women
 """
+
 """
 Temporary class for testing purposes 
 """

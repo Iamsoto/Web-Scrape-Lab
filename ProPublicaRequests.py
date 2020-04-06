@@ -9,7 +9,6 @@ def get_key():
 	with open(ProPublicaFileLocation(), 'r') as f:
 		key = f.read()
 		key = key.strip('\n').strip()
-	
 	if not key:
 		raise ValueError
 
@@ -25,14 +24,11 @@ def authenticationHeaders():
 def houseMembers():
 	url = houseMembersURL()
 	headers = authenticationHeaders()
+
 	r = requests.get(url, headers=headers)
 	r.raise_for_status()
-	#print(r.text)
+
 	json_dict = json.loads(r.text)
-	#print(str(json_response))
-	#with open("HouseMemberInfo.txt", 'w+') as f:
-	#	for key in json_dict["results"][0]["members"]:
-	#		f.write(str(key) + "\n")
 	members_list =  []
 	try: 
 		members_list = json_dict["results"][0]["members"]
@@ -40,4 +36,6 @@ def houseMembers():
 		print("Error processing JSON")
 
 	return members_list
+
+
 
