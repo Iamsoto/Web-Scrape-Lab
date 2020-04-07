@@ -100,7 +100,7 @@ class NewsScrapper(object):
 
 		rsm = RandomStringManager()
 		for article in self.article_urls:
-			path = "{}{}{}.txt".format(self.dir_path, self.file_header, rsm.getString(5))
+			path = "{}{}{}.txt".format(self.dir_path, self.file_header, rsm.getString(10))
 			if os.path.exists(path):
 				print("File {} already exists".format(path))
 				raise OSError

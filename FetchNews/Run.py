@@ -37,7 +37,7 @@ def run():
 			
 			my_house_members[member_item['id']]['links'] = []
 			for file in files_to_search:
-				if file_contains_name(file, my_house_members[member_item['id']]['Name']):
+				if file_contains_name(file, my_house_members[member_item['id']]['name']):
 					# url should be the first element of the file
 					url = open(file, "r").read().splitlines()[0]
 					my_house_members[member_item['id']]['links'].append(url)
@@ -45,10 +45,9 @@ def run():
 				# Todo: Multi thread this part
 	reutersScraper.remove_local_files()
 			
-
 	with open("Fetch_Results.txt", "w+") as f:
-		for member in my_house_members:
-			f.write("{}:{}".format(member['name'], str(member['links'])) 
+		for member, value in my_house_members.items():
+			f.write("==={}====:{}\n\n\n".format(value['name'], str(value['links']))) 
 
 
 run()

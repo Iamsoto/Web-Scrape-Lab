@@ -16,7 +16,7 @@ class ReutersScrapper(NewsScrapper):
 			None
 	"""
 	def __init__(self):
-		if not os.path.exists("{}/{}".format(os.path.dirname(os.path.realpath(__file__), "Reuters_Downloads"))):
+		if not os.path.exists("{}/{}".format( os.path.dirname(os.path.realpath(__file__)), "Reuters_Downloads")):
 			os.mkdir("{}/{}".format(os.path.dirname(os.path.realpath(__file__), "Reuters_Downloads")))
 		
 		super().__init__(ReutersURL(), "Reuters_Downloads/Reuters_Downloaded_File_")
