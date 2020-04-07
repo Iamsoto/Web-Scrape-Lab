@@ -40,15 +40,17 @@ def run():
 				link_dict = {}
 				if file_contains_name(file, [my_house_members[member_item['id']]['name']]):
 					file_content = open(file, "r").read().splitlines()
-					link_dict['Article_Title'] = file_content[0]
-					link_dict['Article_URL'] = file_content[-1]
+					link_dict['Article_Title'] = file_content[-1]
+					link_dict['Article_URL'] = file_content[0]
+					link_dict['File'] = file
 					my_house_members[member_item['id']]['links'].append(link_dict)
 
 	reutersScraper.remove_local_files()
 			
 	with open("Fetch_Results.txt", "w+") as f:
 		for member, value in my_house_members.items():
-			f.write("==={}====:\n{}\n\n\n".format(value['name'], "".join(link['Article_Title'] + link['Article_URL'] for link in value['links']) )) 
+			f.write("==={}====:\n{}\n\n\n".format(value['name'], 
+				"".join("Article Title: " + link['Article_Title'] +"\nArticle URL: "+ link['Article_URL'] + "\nFile Path: " + link['File'] + "\n\n" for link in value['links']) )) 
 
 
 run()

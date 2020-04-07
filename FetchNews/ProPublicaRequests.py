@@ -23,7 +23,7 @@ class ProPublicaRequest(object):
 			key = f.read()
 			key = key.strip('\n').strip()
 		if not key:
-			raise ValueError
+			raise ValueError("Error Processing ProPublica.txt")
 
 		os.environ['ProPublicaAPIKey'] = key
 		return key 
@@ -54,8 +54,7 @@ class ProPublicaRequest(object):
 		try: 
 			members_list = json_dict["results"][0]["members"]
 		except Exception as e:
-			print("Error processing JSON" + str(e))
-			raise Exception
+			raise Exception("Error processing JSON" + str(e))
 
 		return members_list
 

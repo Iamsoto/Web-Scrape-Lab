@@ -38,8 +38,7 @@ class NewsScrapper(object):
 		files = []
 		file_manager_path = "{}{}{}.txt".format(self.dir_path, self.file_header, self.file_manager_name)
 		if not os.path.exists(file_manager_path):
-			print("Cannot locate file {} deleting 0 files".format(file_manager_path))
-			raise OSError
+			raise OSError("Cannot locate file {} deleting 0 files".format(file_manager_path))
 		else: 
 			# Each line should represent a file. Important: split lines
 			lines = open(file_manager_path, "r").read().splitlines()
@@ -102,8 +101,7 @@ class NewsScrapper(object):
 		for article in self.article_urls:
 			path = "{}{}{}.txt".format(self.dir_path, self.file_header, rsm.getString(10))
 			if os.path.exists(path):
-				print("File {} already exists".format(path))
-				raise OSError
+				raise OSError("File {} already exists".format(path))
 			else: 
 				# Write contents of article into a local file
 				with open(path, "w+") as f:
