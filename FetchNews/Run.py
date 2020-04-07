@@ -32,12 +32,12 @@ def run():
 	for member_item in house_members_list:
 		if member_item['id'] not in my_house_members:
 			my_house_members[member_item['id']] = {}
-			my_house_members[member_item['id']]['name'] = "{} {} {}".format(member_item['short_title'], member_item['first_name'], member_item['last_name'])
+			my_house_members[member_item['id']]['name'] = "{} {}".format(member_item['short_title'], member_item['first_name'], member_item['last_name'])
 			files_to_search = reutersScraper.get_local_files()
 			
 			my_house_members[member_item['id']]['links'] = []
 			for file in files_to_search:
-				if file_contains_name(file, my_house_members[member_item['id']]['name']):
+				if file_contains_name(file, [my_house_members[member_item['id']]['name']]):
 					# url should be the first element of the file
 					url = open(file, "r").read().splitlines()[0]
 					my_house_members[member_item['id']]['links'].append(url)
@@ -47,7 +47,7 @@ def run():
 			
 	with open("Fetch_Results.txt", "w+") as f:
 		for member, value in my_house_members.items():
-			f.write("==={}====:{}\n\n\n".format(value['name'], str(value['links']))) 
+			f.write("==={}====\n:{}\n\n\n".format(value['name'], str(value['links']))) 
 
 
 run()
