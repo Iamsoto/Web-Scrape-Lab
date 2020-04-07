@@ -1,3 +1,0 @@
-"""
-Fetch Archive data
-"""

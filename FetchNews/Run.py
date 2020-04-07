@@ -8,6 +8,7 @@ from Reuters import ReutersScrapper
 """
 def file_contains_name(file, names):
 	content = open(file, "r").read()
+	#print("Scanning File {} for name {}".format(file, str(names)))
 	for name in names:
 		if name in content:
 			return True
@@ -18,7 +19,6 @@ def file_contains_name(file, names):
 	Create a file that shows 
 	1) the names each house of rep member
 	2) the links whose articles have been found to contain their name
-
 """
 def run():
 	ppr = ProPublicaRequest()
@@ -32,7 +32,7 @@ def run():
 	for member_item in house_members_list:
 		if member_item['id'] not in my_house_members:
 			my_house_members[member_item['id']] = {}
-			my_house_members[member_item['id']]['name'] = "{} {}".format(member_item['short_title'], member_item['first_name'], member_item['last_name'])
+			my_house_members[member_item['id']]['name'] = "{} {}".format( member_item['first_name'], member_item['last_name'])
 			files_to_search = reutersScraper.get_local_files()
 			
 			my_house_members[member_item['id']]['links'] = []
@@ -40,6 +40,7 @@ def run():
 				if file_contains_name(file, [my_house_members[member_item['id']]['name']]):
 					# url should be the first element of the file
 					url = open(file, "r").read().splitlines()[0]
+					#print("URL: {}".format(url))
 					my_house_members[member_item['id']]['links'].append(url)
 					#print("Found a URL!! {}".format(url))
 				# Todo: Multi thread this part
@@ -51,6 +52,7 @@ def run():
 
 
 run()
-		#profile_pic = get_facebook_profile_pic(member_item['facebook_account'])
-		#house_member_ids['id'] = profile_pic
+
+	#profile_pic = get_facebook_profile_pic(member_item['facebook_account'])
+	#house_member_ids['id'] = profile_pic
 #fetch_Congress_News_Test()
