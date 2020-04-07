@@ -1,7 +1,0 @@
-Useful Links:
-
- -More information on proPublica API :
- 	https://projects.propublica.org/api-docs/congress-api/members/
-
- -Python Requests:
- 	https://requests.readthedocs.io/en/master/user/quickstart/
