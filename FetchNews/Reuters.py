@@ -27,7 +27,7 @@ class ReutersScrapper(NewsScrapper):
 		params:
 			str url: url of article to retreive text from
 		return: 
-			list paragraph_texts: list of texts, each text is a paragraph
+			list paragraph_texts: list of texts, each text is a paragraph, position -1 is the title
 	"""
 	def get_article_text(self, url):
 		paragraph_texts = []
@@ -38,6 +38,9 @@ class ReutersScrapper(NewsScrapper):
 		paragraphs = div_content.find_all("p")
 		for paragraph in paragraphs:
 			paragraph_texts.append(paragraph.text)
+
+		h1_content = soup1.find("h1", class_ = "ArticleHeader_headline")
+		paragraph_texts.append(h1_content.text)
 
 		return paragraph_texts
 	
