@@ -59,7 +59,7 @@ class NewsScrapper(object):
 	def remove_local_files(self):
 		files = []
 		try:
-			files = get_local_files()
+			files = self.get_local_files()
 		except OSError as e:
 			print("Exception caught while retreiving local files {}".format(str(e)))
 			return None

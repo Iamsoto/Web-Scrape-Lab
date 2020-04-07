@@ -43,6 +43,7 @@ def run():
 					my_house_members[member_item['id']]['links'].append(url)
 					#print("Found a URL!! {}".format(url))
 				# Todo: Multi thread this part
+	reutersScraper.remove_local_files()
 			
 
 	with open("Fetch_Results.txt", "w+") as f:
